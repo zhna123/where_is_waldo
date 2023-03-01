@@ -1,23 +1,28 @@
-import logo from './logo.svg';
-import './App.css';
+import Dashboard from './component/Dashboard'
+import { db, storage } from './utils/firebase'
+
+import { ref, getDownloadURL } from 'firebase/storage'
+import { useEffect, useState } from 'react'
 
 function App() {
+
+  const [url, setUrl] = useState('');
+
+  useEffect(() => {
+    (async () => {
+      try {
+        const resp = await getDownloadURL(ref(storage, 'images/waldo.jpeg'));
+        setUrl(resp)
+      } catch (err) {
+        // handle error
+        console.log('error downloading image...')
+      }
+    })()
+  }, []);
+
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+    <div>
+      <Dashboard imageUrl = { url }/>
     </div>
   );
 }
