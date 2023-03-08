@@ -6,20 +6,16 @@ function OverlayGrid({ grid }) {
 
     const gridRef = useRef(null);
     const [open, setOpen] = useState(false);
+    const [marked, setMarked] = useState(false);
 
-    useEffect(() => {
-        const onClickFunction = () => {
+    // click grid
+    const clickGridHandler = () => {
+        if (!open && !marked) {
             setOpen(true)
         }
-        const currentNode = gridRef.current;
-        if (currentNode) {
-            currentNode.addEventListener("click", onClickFunction)
-            return () => {
-                currentNode.removeEventListener("click", onClickFunction);
-            }
-        }
-    }, [open])
-    
+    }
+
+    // click outside grid
     useEffect(() => {
         const currentNode = gridRef.current;
         const handleClickOutside = (e) => {
@@ -35,10 +31,26 @@ function OverlayGrid({ grid }) {
         }
     }, [open])
 
+    const markCorrectGrid = () => {
+        // close dropdown first
+        setOpen(false);
+        const element = gridRef.current;
+        element.classList.add('markedGrid');
+        setMarked(true)
+    }
+
+    const notifyIncorrectGrid = () => {
+        // TODO dont use alert here
+        alert('selection is incorrect');
+        setOpen(false)
+    }
+
     return (
-        <div ref = { gridRef } className='rowDivide' >
+        <div ref = { gridRef } className='rowDivide' onClick={ clickGridHandler }>
             { open && 
-                <DropDown />
+                <DropDown grid = { grid } 
+                        markCorrectGrid = { markCorrectGrid }
+                        notifyIncorrectGrid = { notifyIncorrectGrid }/>
             }
         </div>
     )

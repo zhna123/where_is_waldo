@@ -1,4 +1,4 @@
-import { storage } from '../utils/firebase'
+import { storage } from '../db/firebase'
 import { ref, getDownloadURL } from 'firebase/storage'
 import { useEffect, useState } from 'react'
 import '../styles/styles.css'

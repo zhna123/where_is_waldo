@@ -1,5 +1,5 @@
 import { useRef } from 'react';
-import GridItem from '../model/GridItem';
+import GridItem from '../db/GridItem';
 import '../styles/styles.css'
 import OverlayGrid from './OverlayGrid';
 
