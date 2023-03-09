@@ -2,7 +2,7 @@ import { useEffect, useRef, useState } from 'react';
 import '../styles/styles.css'
 import DropDown from './DropDown';
 
-function OverlayGrid({ grid }) {
+function OverlayGrid({ grid, incTotalMarks }) {
 
     const gridRef = useRef(null);
     const [open, setOpen] = useState(false);
@@ -37,6 +37,7 @@ function OverlayGrid({ grid }) {
         const element = gridRef.current;
         element.classList.add('markedGrid');
         setMarked(true)
+        incTotalMarks()
     }
 
     const notifyIncorrectGrid = () => {

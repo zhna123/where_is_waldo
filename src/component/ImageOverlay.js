@@ -3,7 +3,7 @@ import GridItem from '../db/GridItem';
 import '../styles/styles.css'
 import OverlayGrid from './OverlayGrid';
 
-function ImageOverlay() {
+function ImageOverlay({ incTotalMarks }) {
 
     const overlayRef = useRef(null);
 
@@ -20,7 +20,8 @@ function ImageOverlay() {
                 {item.map((i, ind) => {
                     const grid = new GridItem(index, ind)
                     return (
-                            <OverlayGrid key={ ind } grid = { grid }/>                      
+                            <OverlayGrid key={ ind } grid = { grid } 
+                                    incTotalMarks = { incTotalMarks }/>                      
                         )
                 })}
             </div>
