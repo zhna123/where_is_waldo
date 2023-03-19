@@ -1,12 +1,14 @@
 import { useEffect, useRef, useState } from 'react';
 import '../styles/styles.css'
 import DropDown from './DropDown';
+import Alert from './Alert';
 
 function OverlayGrid({ grid, incTotalMarks }) {
 
     const gridRef = useRef(null);
     const [open, setOpen] = useState(false);
     const [marked, setMarked] = useState(false);
+    const [alert, setAlert] = useState({showAlert: false, character: ''});
 
     // click grid
     const clickGridHandler = () => {
@@ -40,13 +42,17 @@ function OverlayGrid({ grid, incTotalMarks }) {
         incTotalMarks()
     }
 
-    const notifyIncorrectGrid = () => {
-        // TODO dont use alert here
-        alert('selection is incorrect');
+    const notifyIncorrectGrid = (character) => {
+        setAlert({showAlert: true, character: character})
         setOpen(false)
     }
 
+    const setShowAlert = (show) => {
+        setAlert({ ...alert, showAlert: show })
+    }
+
     return (
+        <>
         <div ref = { gridRef } className='rowDivide' onClick={ clickGridHandler }>
             { open && 
                 <DropDown grid = { grid } 
@@ -54,6 +60,11 @@ function OverlayGrid({ grid, incTotalMarks }) {
                         notifyIncorrectGrid = { notifyIncorrectGrid }/>
             }
         </div>
+        {
+            alert.showAlert &&
+                <Alert character={ alert.character } showAlert = {setShowAlert} />
+        }
+        </>
     )
 }
 

@@ -1,0 +1,56 @@
+.gameEndContainer {
+    position: relative;
+    z-index: 0;
+    font: inherit;
+    text-align: center;
+}
+
+table {
+    margin: 20px auto;
+    width: 60%;
+    border-collapse: collapse;
+}
+
+th, td {
+    padding: 10px;
+    text-align: left;
+    border-bottom: 1px solid #ddd;
+}
+
+.buttons {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 20px;
+    margin-top: 40px;
+}
+
+.nameForm {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, 0);
+    z-index: 4;
+    background-color: white;
+    padding: 30px 20px;
+    border-radius: 5px;
+}
+
+.nameForm > form {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    gap: 20px;
+}
+
+.nameForm button {
+    width: 40%;
+}
+
+.nameFormLink {
+    cursor: pointer;
+    font-style: italic;
+    font-size: 1.2rem;
+    color: rgb(65, 190, 232);
+}

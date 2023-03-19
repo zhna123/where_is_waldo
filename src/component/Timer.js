@@ -1,13 +1,16 @@
 import { useEffect, useState } from "react";
 
-function Timer({ totalMarks }) {
+function Timer({ recordTotalTimeUsed }) {
     const [isActive, setIsActive] = useState(true);
     const [time, setTime] = useState(0);
 
+    const timeLimit = 30 * 60 * 1000;
+    // time change
     useEffect(() => {
         let interval = null;
         if (isActive) {
             interval = setInterval(() => {
+                // timer change every one second
                 setTime((pre) => pre + 1000)
             }, 1000)
         } else {
@@ -15,25 +18,38 @@ function Timer({ totalMarks }) {
         } 
         
         return () => {
+            recordTotalTimeUsed(time)
             clearInterval(interval)
         }
-    }, [isActive])
+    })
 
+    // time is up
     useEffect(() => {
-        if (totalMarks === 5) {
+        if (time > timeLimit) {
             setIsActive(false)
+            recordTotalTimeUsed(time)
         }
-    }, [totalMarks])
+    }, [time, timeLimit, recordTotalTimeUsed])
+
+    const renderTimer = () => {
+        return (
+            <div className="timer">
+                <span className="time">
+                    {("0" + Math.floor((time / 60000))).slice(-2)}:
+                </span>
+                <span className="time">
+                    {("0" + Math.floor((time / 1000) % 60)).slice(-2)}
+                </span>
+            </div>
+        )
+    }
 
     return (
-        <div className="timer">
-            <span className="digit">
-                {("0" + Math.floor((time / 60000) % 60)).slice(-2)}:
-            </span>
-            <span className="digit">
-                {("0" + Math.floor((time / 1000) % 60)).slice(-2)}
-            </span>
-        </div>
+        <>
+        {time <= timeLimit ? renderTimer() : <div className="time">Time is Up (30 minutes)</div>}
+        </>
+        
+        
     )
 }
 

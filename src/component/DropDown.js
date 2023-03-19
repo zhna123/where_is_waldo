@@ -14,7 +14,7 @@ function DropDown({ grid, markCorrectGrid, notifyIncorrectGrid }) {
         if (foundCharacter) {
             markCorrectGrid()   
         } else {
-            notifyIncorrectGrid()
+            notifyIncorrectGrid(character)
         }
     }
 
