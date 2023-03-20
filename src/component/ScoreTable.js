@@ -16,7 +16,6 @@ function ScoreTable({ submitted, setLastRank }) {
             // convert to js array (firestore foreach doesn't return index)
             querySnapshot.docs.forEach((doc, index) => {
                 const obj = doc.data();
-                console.log(index, obj)
                 switch(index) {
                     case 0:
                         setRank1(obj);

@@ -36,6 +36,18 @@ h3 {
     font: inherit;
 }
 
+.timer {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.timer > img {
+    width: 35px;
+    margin-right: 10px;
+    cursor: pointer;
+}
+
 .time {
     font-size: 1.2rem;
     font-weight: bold;
@@ -66,6 +78,25 @@ img {
     grid-template-columns: repeat(10, 1fr);
 }
 
+.timer_overlay {
+    display: none;
+    justify-content: center;
+    align-items: center;
+    background-color: var(--light_gray);
+    z-index: 100;
+    position: absolute;
+    left: 0; top: 0; right: 0; bottom: 0;
+
+    background-image: url('../images/start-page.png');
+    background-size: 70%;
+    background-repeat:no-repeat;
+    background-position: center;
+}
+
+.timer_overlay_show {
+    display: block;
+}
+
 .colDivide {
     display: grid;
     grid-template-rows: repeat(10, 1fr);
@@ -93,6 +124,8 @@ img {
     border-radius: 3px;
     width: 100%;
     z-index: 2;
+
+    overflow: hidden;
 }
 
 ul {
@@ -168,6 +201,16 @@ li > span {
     z-index: 3;
 }
 
+.pauseDiv {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.pauseDiv > img {
+    width: 30%;
+}
+
 button {
     width: 120px;
     height: 30px;
@@ -178,10 +221,14 @@ button {
     font: inherit;
 }
 
-.quitBtn {
-    background-color: var(--red);
+.controlBtns {
     float: right;
     margin-right: 12.5%;
 }
+
+.controlBtns button {
+    background-color: var(--red);
+}
+
 
 
