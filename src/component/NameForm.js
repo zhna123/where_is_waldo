@@ -61,8 +61,9 @@ function NameForm({ closeForm, time, formSubmitted }) {
         <div className="popup_overlay"></div>
         <div className="nameForm" ref={ formRef }>
             <form method="post" onSubmit={ handleSubmit } >
+                <p>Please enter your name:</p>
                 <label>
-                    Name: <input ref={ inputRef } name="nameInput" />
+                    Name: <input ref={ inputRef } type="text" name="nameInput" />
                 </label>
                 <label>
                     Stay Anonymous: <input ref={ checkboxRef } type="checkbox" name="anonymousCheckbox" onChange={ checkboxOnChange }/>

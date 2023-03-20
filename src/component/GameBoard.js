@@ -5,6 +5,7 @@ import '../styles/styles.css'
 import ImageOverlay from './ImageOverlay';
 import Timer from './Timer';
 import GameOver from './GameOver';
+import { Link } from 'react-router-dom';
 
 
 function GameBoard() {
@@ -36,20 +37,24 @@ function GameBoard() {
 
     const showGameBoard = () => {
       return (
+        <>
         <div className='gameContainer'>
-            <p>Where's Waldo</p>
             <div className='imageContainer'>
                 <img src={ url } alt='' />
                 <ImageOverlay incTotalMarks = { incTotalMarks }/>
             </div>
             <Timer recordTotalTimeUsed = { recordTotalTimeUsed }/>
         </div>
+        <Link to='/'>
+          <button className='quitBtn'>QUIT</button>
+        </Link>
+        </>
       )
     }
 
     return (
       <>
-        { totalMarks === 1 ? <GameOver timeUsed = { timeUsed }/> : showGameBoard() }
+        { totalMarks === allMarks ? <GameOver timeUsed = { timeUsed }/> : showGameBoard() }
 
       </>      
     )

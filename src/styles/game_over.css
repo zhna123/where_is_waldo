@@ -3,17 +3,22 @@
     z-index: 0;
     font: inherit;
     text-align: center;
+    color: var(--dark_gray);
+}
+
+.gameEndContainer span {
+    color: var(--red);
 }
 
 table {
     margin: 20px auto;
-    width: 60%;
+    width: 40%;
     border-collapse: collapse;
 }
 
 th, td {
     padding: 10px;
-    text-align: left;
+    text-align: center;
     border-bottom: 1px solid #ddd;
 }
 
@@ -25,12 +30,21 @@ th, td {
     margin-top: 40px;
 }
 
+.buttons > button:first-child {
+    background-color: var(--green)
+}
+
+.buttons button:last-child {
+    background-color: var(--red);
+}
+
 .nameForm {
     position: absolute;
     top: 50%;
     left: 50%;
     transform: translate(-50%, 0);
     z-index: 4;
+    width: 30%;
     background-color: white;
     padding: 30px 20px;
     border-radius: 5px;
@@ -44,8 +58,25 @@ th, td {
     gap: 20px;
 }
 
+input[type=text] {
+    height: 20px;
+    margin-left: 5px;
+    border: 1px solid var(--dark_gray);
+    border-radius: 4px;
+}
+
+input[type=checkbox] {
+    transform: scale(1.5);
+    margin-left: 5px;
+}
+
+.nameForm p {
+    font-size: 1.2rem;
+    margin: 10px;
+}
+
 .nameForm button {
-    width: 40%;
+    background-color: var(--green);
 }
 
 .nameFormLink {

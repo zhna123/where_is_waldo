@@ -1,4 +1,5 @@
 import { useEffect, useRef } from "react"
+import XMARK from '../images/xmark.png'
 
 function Alert({ character, showAlert }) {
 
@@ -27,7 +28,10 @@ function Alert({ character, showAlert }) {
         <>
         <div className="popup_overlay"></div>
         <div ref = {alertRef} className="alert">
-            { character } is not within selection!
+            <img src={ XMARK } alt=''></img>
+            <div>
+                { character } is not within selection!
+            </div>
         </div>
         </>     
     )

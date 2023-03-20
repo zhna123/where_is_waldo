@@ -3,6 +3,7 @@ import '../styles/game_over.css'
 import NameForm from './NameForm';
 import ScoreTable from './ScoreTable';
 import { minuteTime, secondTime } from '../util/TimeConverter';
+import { Link } from 'react-router-dom';
 
 function GameOver({ timeUsed }) {
 
@@ -22,10 +23,14 @@ function GameOver({ timeUsed }) {
         setOpenForm(false)
     }
 
+    const handleRefresh = () => {
+        window.location.reload()
+    }
+
     return (
         <div className='gameEndContainer'>
             <p>Congratulations! You've found all the characters.</p>
-            <p>You used { minuteTime(timeUsed) } minutes { secondTime(timeUsed) } seconds. </p>
+            <p>You used <span>{ minuteTime(timeUsed) } minutes { secondTime(timeUsed) } seconds</span>. </p>
             {
                 timeUsed > lastRank ? <div /> :
                 !submitted &&
@@ -36,8 +41,10 @@ function GameOver({ timeUsed }) {
             <ScoreTable submitted = { submitted } setLastRank = { setLastRank }/>
 
             <div className='buttons'>
-                <button>PLAY AGAIN</button>
-                <button>QUITE</button>
+                <button onClick={ handleRefresh }>PLAY AGAIN</button>
+                <Link to='/'>
+                    <button>QUIT</button>
+                </Link>
             </div>
 
             {openForm && 

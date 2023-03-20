@@ -37,7 +37,6 @@ function ScoreTable({ submitted, setLastRank }) {
                     default:
                         break;
                 }
-                // console.log(doc.id, " => ", doc.data());
             });
         })()
     }, [submitted, setLastRank])
