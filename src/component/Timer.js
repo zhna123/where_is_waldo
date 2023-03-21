@@ -11,6 +11,7 @@ function Timer({ timerOverlayRef, recordTotalTimeUsed }) {
     // time change
     useEffect(() => {
         let interval = null;
+        console.log('call use effect')
         if (isActive && !paused) {
             interval = setInterval(() => {
                 // timer change every one second
@@ -24,7 +25,7 @@ function Timer({ timerOverlayRef, recordTotalTimeUsed }) {
             recordTotalTimeUsed(time)
             clearInterval(interval)
         }
-    }, [isActive, paused])
+    }, [isActive, paused, recordTotalTimeUsed])
 
     // time is up
     useEffect(() => {
