@@ -201,16 +201,6 @@ li > span {
     z-index: 3;
 }
 
-.pauseDiv {
-    display: flex;
-    justify-content: center;
-    align-items: center;
-}
-
-.pauseDiv > img {
-    width: 30%;
-}
-
 button {
     width: 120px;
     height: 30px;
@@ -224,6 +214,7 @@ button {
 .controlBtns {
     float: right;
     margin-right: 12.5%;
+    margin-bottom: 30px;
 }
 
 .controlBtns button {
