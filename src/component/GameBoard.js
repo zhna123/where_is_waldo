@@ -7,6 +7,12 @@ import Timer from './Timer';
 import GameOver from './GameOver';
 import { Link } from 'react-router-dom';
 
+import WALDO from '../images/waldo.png'
+import WOOF from '../images/woof.png'
+import WENDA from '../images/wenda.png'
+import WIZARD from '../images/wizard-whitebeard.png'
+import ODLAW from '../images/odlaw.png'
+
 function GameBoard() {
 
     const [url, setUrl] = useState('');
@@ -35,10 +41,27 @@ function GameBoard() {
       setTimeUsed(timeUsed)
     }
 
+    const charDiv = (name, image) => {
+      return (
+        <div className='character'>
+              <img src={ image } alt=''></img>
+              <span>{ name }</span>    
+        </div>
+      )
+    }
+
     const showGameBoard = () => {
       return (
         <>
         <div className='gameContainer'>
+            <div className='instruction'>
+              <span>Look for: </span>
+              { charDiv('Waldo', WALDO) }
+              { charDiv('Woof', WOOF) }
+              { charDiv('Wenda', WENDA) }
+              { charDiv('Wizard Whitebeard', WIZARD) }
+              { charDiv('odlaw', ODLAW) }
+            </div>
             <div className='imageContainer'>
                 <img src={ url } alt='' />
                 <ImageOverlay incTotalMarks = { incTotalMarks }/>

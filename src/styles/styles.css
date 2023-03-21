@@ -36,6 +36,28 @@ h3 {
     font: inherit;
 }
 
+.instruction {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 20px;
+    margin: 10px;
+}
+
+.instruction span {
+    color: var(--dark_gray);
+    font-size: .8rem;
+}
+
+.instruction > span {
+    font-size: 1.2rem;
+}
+
+.character > img {
+    width: 30px;
+    height: 50px;
+}
+
 .timer {
     display: flex;
     justify-content: center;
