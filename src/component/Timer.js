@@ -51,13 +51,13 @@ function Timer({ timerOverlayRef, recordTotalTimeUsed }) {
     const renderTimer = () => {
         return (
             <div className="timer">
-                <img src={ paused ? ARROW : PAUSE } alt="" onClick={ handleTimerPause }/>
-                <span className="time">
-                    {("0" + Math.floor((time / 60000))).slice(-2)}:
-                </span>
-                <span className="time">
-                    {("0" + Math.floor((time / 1000) % 60)).slice(-2)}
-                </span>
+                <div className="content">
+                    <img src={ paused ? ARROW : PAUSE } alt="" onClick={ handleTimerPause }/>
+                    <span className="time">
+                        {("0" + Math.floor((time / 60000))).slice(-2)}:
+                        {("0" + Math.floor((time / 1000) % 60)).slice(-2)}
+                    </span>
+                </div>
             </div>
         )
     }
