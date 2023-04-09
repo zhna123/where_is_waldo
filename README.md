@@ -1,5 +1,4 @@
 # Where is Waldo
-[DEMO](https://where-is-waldo-b6132.firebaseapp.com/)
 
 This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
 
